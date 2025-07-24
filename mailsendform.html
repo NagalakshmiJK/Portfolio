@@ -1,0 +1,31 @@
+<!DOCTYPE Html>
+<html>
+
+<head>
+    <title>MailForm</title>
+    <link rel="stylesheet" href="targetportfolio.css">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <script src="applicationcheck.js" defer></script>
+</head>
+
+<body>
+    <div class="contactform">
+        <form action="https://api.web3forms.com/submit" method="POST" id="form">
+            <h1>Contact Mail Form</h1>
+            <input type="hidden" name="access_key" value="">
+            <div class="fields">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Your Mail">
+                <div class="error"><p></p></div>
+            </div>
+            <div class="fields">
+                <label for="Message">Message</label>
+                <textarea id="Message" name="message" placeholder="Your Message"></textarea>
+                <div class="error"><p></p></div>
+            </div>
+            <button type="submit">Send Mail</button>
+        </form>
+    </div>
+</body>
+
+</html>
