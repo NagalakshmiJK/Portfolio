@@ -33,7 +33,7 @@
             fetch('/config.json')
                 .then(response => response.json())
                 .then(config => {
-                    document.getElementById("access_key").value = config.WEB3_ACCESS_KEY;
+                    document.getElementById("access_key").value = config.accesskeyvalue;
                 });
         </script>
     </div>
