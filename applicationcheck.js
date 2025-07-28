@@ -1,65 +1,35 @@
-const form = document.querySelector('#form')
-const email = document.querySelector('#email')
-const Message = document.querySelector('#Message')
-form.addEventListener('submit',(e)=>{
-    if(!validation())
-    {
-        e.preventDefault()
-    }
-})
+const email = document.getElementById("email")
+const message = document.getElementById("Message")
+const mailerror = document.getElementById("mailerror")
+const messageerror = document.getElementById("messageerror")
+const mail = /^([a-z0-9._])+\@+([a-z])+\.([a-z])+$/
 
-function validation(){
-    let success=true
-    const emailval = email.value.trim()
-    const messageval = Message.value.trim()
-    if(emailval==='')
+function check(){
+    var emailtext = email.value 
+    var messagetext = message.value
+    if(emailtext === "")
     {
-        success=false
-        setError(email,'Please type Your Email id')
+        mailerror.textContent = "Please type Your Mail id"
+        return false
     }
-    else if(!validateEmail(emailval)){
-        success=false
-        setError(email,'Please Enter Your Valid Email')
+    else if(!mail.test(emailtext))
+    {
+        mailerror.textContent = "Invalid Email"
+        return false
     }
-    else{
-        setSucess(email)
+    else if(mail.test(emailtext)){
+        mailerror.textContent = ""
     }
 
-    if(messageval==='')
+    if(messagetext === "")
     {
-        success=false
-        setError(Message,'Please Write Some Message')
+        messageerror.textContent = "Plese type Something Message"
+        return false
     }
-    else if(messageval.length<20)
+    else if(messagetext.length<20)
     {
-        success=false
-        setError(Message,' Atleast 20 char Must been available ')
+        messageerror.textContent = "Atleast 20 character minimum available"
+        return false
     }
-    else{
-        setSucess(Message)
-    }
-    return success
 }
 
-function setError(element,message){
-    const field = element.parentElement;
-    const errorElement = field.querySelector('.error');
-    
-    errorElement.innerText = message;
-    field.classList.add('error')
-    field.classList.remove('success')
-}
-function setSucess(element){
-    const field = element.parentElement;
-    const errorElement = field.querySelector('.error');
-    
-    errorElement.innerText = '';
-    field.classList.add('success')
-    field.classList.remove('error')
-}
-const validateEmail = (email) => {
-    return String(email)
-    .match(
-        /^([a-z0-9._])+\@+([a-z])+\.([a-z])+$/
-    )
-}
