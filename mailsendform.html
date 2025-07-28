@@ -10,32 +10,21 @@
 
 <body>
     <div class="contactform">
-        <form action="https://api.web3forms.com/submit" method="POST" id="form">
+        <form action="https://api.web3forms.com/submit" onsubmit=" return check()" method="POST" id="form">
             <h1>Contact Mail Form</h1>
             <input type="hidden" name="access_key" id="access_key">
             <div class="fields">
                 <label for="email">Email</label>
                 <input type="text" id="email" name="email" placeholder="Your Mail">
-                <div class="error">
-                    <p></p>
-                </div>
+                <p id="mailerror"></p>
             </div>
             <div class="fields">
                 <label for="Message">Message</label>
                 <textarea id="Message" name="message" placeholder="Your Message"></textarea>
-                <div class="error">
-                    <p></p>
-                </div>
+                <p id="messageerror"></p>
             </div>
             <button type="submit">Send Mail</button>
         </form>
-        <script>
-            fetch('/config.json')
-                .then(response => response.json())
-                .then(config => {
-                    document.getElementById("access_key").value = config.accesskeyvalue;
-                });
-        </script>
     </div>
 </body>
 
