@@ -371,16 +371,9 @@ button{
     border-radius: 7px;
     outline: none;
 }
-.error{
+.fields p{
     color: red;
-    font-size: 12px;
-    padding: 5px;
-    label{
-        color: white;
-    }
-}
-.fields.error input{
-    border-color: red solid 2px;
+    font-size: 13px;
 }
 
 @media (min-width:768px){
@@ -618,6 +611,15 @@ button{
     .aboutmeimage img{
         width: 250px;
         height: 250px;
+    }
+    .featurework{
+        margin: 40px 30px;
+    }
+    .cards{
+        margin: 20px;
+    }
+    .cardmodel{
+        padding: 10px;
     }
 }
 
